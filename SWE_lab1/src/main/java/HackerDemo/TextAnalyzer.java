@@ -200,6 +200,7 @@ public class TextAnalyzer {
                     distances.put(nodeId, weight);
                 } else {
                     distances.put(nodeId, Integer.MAX_VALUE); // No direct edge, distance is infinityBBBBBBBBB
+                    distances.put(nodeId, Integer.MAX_VALUE); // No direct edge, distance is infinityCCCCCCCCC4
                 }
             }
         }
