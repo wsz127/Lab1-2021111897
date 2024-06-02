@@ -10,26 +10,6 @@ import java.io.*;
 import java.util.*;
 import java.util.Random;
 
-// 没什么用的类
-class GraphMat{
-    private byte adjacencyMatrix[][]; // 设置邻接矩阵，因为邻边设置长度为1，为1有边
-    public String[] node_name;
-    public int num_node;
-    public GraphMat(Graph graph)
-    {
-        this.num_node = 0;
-        this.num_node = graph.getNodeCount();
-        int n = this.num_node;
-        this.adjacencyMatrix = new byte[n][n];
-        this.node_name = new String[n + 1];
-        for (int i = 0; i < n; i++) {
-            this.node_name[i] = graph.getNode(i).getId();
-            for (int j = 0; j < n; j++)
-                this.adjacencyMatrix[i][j] = (byte) (graph.getNode(i).hasEdgeBetween(j) ? 1 : 0);
-        }
-    }
-
-}
 
 
 public class TextAnalyzer {
@@ -227,49 +207,7 @@ public class TextAnalyzer {
         return distances;
     }
 
-    // 可以输出红色最短路径，并打印所有节点最短路径长度
-    // 这是掉了包的实现
-    //TODO：重写这个Dij算法
-    public void Dijstra(String start, String end)
-    {
-        if (graph.getNode(start) == null|| graph.getNode(end) == null) {
-            System.out.println("One or both nodes not in the graph!");
-            return;
-        }
 
-        // Edge lengths are stored in an attribute called "length"
-        // The length of a path is the sum of the lengths of its edges
-        Dijkstra dijkstra = new Dijkstra(Dijkstra.Element.EDGE, null, "weight");
-
-        // Compute the shortest paths in g from A to all nodes
-        dijkstra.init(this.graph);
-        dijkstra.setSource(this.graph.getNode(start));
-        dijkstra.compute();
-
-        // Print the lengths of all the shortest paths
-        // 可选功能：
-        for (Node node : this.graph)
-        {
-            System.out.printf("%s->%s:%10.2f%n", dijkstra.getSource(), node,
-                    dijkstra.getPathLength(node));
-        }
-
-        System.out.printf("the destination node is:%s\n", this.graph.getNode(end).getId());
-        // Color in blue all the nodes on the shortest path form A to B
-        for (Node node : dijkstra.getPathNodes(this.graph.getNode(end)))
-        {
-            node.setAttribute("ui.style", "fill-color: yellow;");
-            System.out.printf(node.getId());
-            if(node != this.graph.getNode(end))
-                System.out.printf("->");
-        }
-        for (Edge edge: dijkstra.getPathEdges(graph.getNode(end)))
-        {
-            edge.setAttribute("ui.style", "fill-color: red;");
-        }
-
-
-    }
 
     private static class NodeDistance {
         String nodeId;
