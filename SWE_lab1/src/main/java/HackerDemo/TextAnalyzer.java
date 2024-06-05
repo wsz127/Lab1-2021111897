@@ -71,6 +71,7 @@ public class TextAnalyzer {
         StringTokenizer tokenizer = new StringTokenizer(processedText);
         while (tokenizer.hasMoreTokens()) {
             String word = tokenizer.nextToken();
+            graph.addNode(word);
             if (previousWord != null) {
                 Edge edge = graph.getEdge(previousWord + "_" + word);
 
@@ -511,7 +512,8 @@ public class TextAnalyzer {
 
                     }
                     }
-                    // 输出最终结果
+                    // 输出最终结果59111111111111111111111111111111111111111111111111111111111111111987198148414151441
+
                     System.out.println(output.toString());
                     System.out.println("选择你要实现的功能`v´:\n" +
                             " 3)查询桥接词\n" +
@@ -560,17 +562,17 @@ public class TextAnalyzer {
 //                    try {
 //                        writer = new FileWriter("./randomwalk.txt", true);
 //                        writer.write(ret);
-//                        writer.flush();
+//                        writer.flush();65165
 //                        writer.close();
 //                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
+//                        e.printStackTrace();?????????????????????
+//                    }IDEA
                     tg.startTraversal("./output.txt");
                     System.out.println("选择你要实现的功能`v´:\n" +
                             " 3)查询桥接词\n" +
                             " 4)根据bridge word生成新文本\n" +
                             " 5)计算两个单词之间的最短路径\n" +
-                            " 6)随机游走\n");
+                            " 6)aaaaaaaaa随机游走\n");
                 }
                 if (fun.equals("7"))
                 {
